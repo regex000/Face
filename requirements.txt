@@ -6,12 +6,6 @@ opencv-python>=4.8.0
 numpy>=1.24.0
 pillow>=10.0.0
 
-# ==================== FACE RECOGNITION ====================
-insightface>=0.7.3
-mediapipe>=0.10.0
-scikit-image>=0.21.0
-scipy>=1.11.0
-
 # ==================== DATA PROCESSING ====================
 pandas>=2.0.0
 sqlalchemy>=2.0.0
@@ -21,3 +15,13 @@ python-dotenv>=1.0.0
 
 # ==================== API & NETWORKING ====================
 requests>=2.31.0
+
+# ==================== OPTIONAL (for local development - Python <3.13 only) ====================
+# Uncomment these for enhanced face recognition on local machine
+# Note: insightface and mediapipe require Python <3.13
+# insightface>=0.7.3
+# mediapipe>=0.10.0
+# scipy>=1.11.0
+# scikit-image>=0.21.0
+#
+# For Python 3.13+, the app uses OpenCV Haar Cascade as fallback

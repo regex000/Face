@@ -1,5 +1,5 @@
-# Minimal requirements for local development
-# Use this if you have issues with full requirements
+# Minimal requirements - works on Streamlit Cloud
+# Uses OpenCV Haar Cascade for face detection
 
 streamlit>=1.28.0
 opencv-python>=4.8.0
@@ -8,4 +8,3 @@ pandas>=2.0.0
 python-dotenv>=1.0.0
 requests>=2.31.0
 sqlalchemy>=2.0.0
-mediapipe>=0.10.0

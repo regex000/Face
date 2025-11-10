@@ -13,12 +13,14 @@ try:
 except ImportError:
     INSIGHTFACE_AVAILABLE = False
 
-# Fallback to MediaPipe
+# Fallback to MediaPipe (not available on Python 3.13+)
 try:
     import mediapipe as mp
     MEDIAPIPE_AVAILABLE = True
-except ImportError:
+except (ImportError, RuntimeError):
+    # MediaPipe not available (common on Python 3.13+)
     MEDIAPIPE_AVAILABLE = False
+    mp = None
 
 # Create face encodings directory
 Path(FACE_ENCODINGS_DIR).mkdir(parents=True, exist_ok=True)
@@ -48,12 +50,20 @@ class FaceRecognitionEngine:
     
     def _init_mediapipe(self):
         """Initialize MediaPipe face detection"""
-        self.mp_face_detection = mp.solutions.face_detection
-        self.face_detection = self.mp_face_detection.FaceDetection(
-            model_selection=1,
-            min_detection_confidence=0.5
-        )
-        self.engine_type = "MediaPipe"
+        if mp is None or not MEDIAPIPE_AVAILABLE:
+            self._init_opencv()
+            return
+        
+        try:
+            self.mp_face_detection = mp.solutions.face_detection
+            self.face_detection = self.mp_face_detection.FaceDetection(
+                model_selection=1,
+                min_detection_confidence=0.5
+            )
+            self.engine_type = "MediaPipe"
+        except Exception as e:
+            print(f"MediaPipe initialization failed: {e}")
+            self._init_opencv()
     
     def _init_opencv(self):
         """Initialize OpenCV Haar Cascade"""

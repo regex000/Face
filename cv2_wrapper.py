@@ -24,6 +24,10 @@ except ImportError as e:
             print("Warning: OpenCV import failed, using fallback implementation")
             import numpy as np
             
+            class DataClass:
+                """Mock data class for cv2"""
+                haarcascades = ""
+            
             class MockCV2:
                 """Mock cv2 module for headless environments"""
                 IMREAD_COLOR = 1
@@ -31,6 +35,8 @@ except ImportError as e:
                 COLOR_BGR2RGB = 4
                 COLOR_BGR2GRAY = 6
                 CASCADE_SCALE_IMAGE = 1
+                
+                data = DataClass()
                 
                 @staticmethod
                 def imread(path, flags=1):
@@ -69,16 +75,6 @@ except ImportError as e:
                     def detectMultiScale(self, img, scale=1.1, minNeighbors=5):
                         """Mock detectMultiScale - returns empty list"""
                         return []
-                
-                class data:
-                    """Mock data class"""
-                    @staticmethod
-                    def haarcascades():
-                        return ""
-                
-                @staticmethod
-                def data():
-                    return MockCV2.data()
             
             cv2 = MockCV2()
             sys.modules['cv2'] = cv2

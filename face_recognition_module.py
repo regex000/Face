@@ -4,7 +4,11 @@ import numpy as np
 from pathlib import Path
 import pickle
 import os
+import sys
 from datetime import datetime
+
+# Ensure we import from the local config, not cv2's config
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import FACE_ENCODINGS_DIR
 
 # Try to import InsightFace (SCRFD - best for real-time)

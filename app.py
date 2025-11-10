@@ -1,4 +1,10 @@
 import streamlit as st
+import sys
+import os
+
+# Ensure we import from the local config, not cv2's config
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
+
 # Use wrapper to handle headless environment
 from cv2_wrapper import cv2
 import numpy as np

@@ -2,6 +2,11 @@ import sqlite3
 from datetime import datetime
 from pathlib import Path
 import json
+import sys
+import os
+
+# Ensure we import from the local config, not cv2's config
+sys.path.insert(0, os.path.dirname(os.path.abspath(__file__)))
 from config import DATABASE_PATH
 
 DB_PATH = Path(DATABASE_PATH)

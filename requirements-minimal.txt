@@ -1,11 +1,11 @@
 # Minimal requirements for local development
 # Use this if you have issues with full requirements
 
-streamlit==1.41.1
-opencv-python==4.10.1.26
-numpy==1.26.4
-pandas==2.2.3
-python-dotenv==1.0.1
-requests==2.32.3
-sqlalchemy==2.0.36
-mediapipe==0.10.14
+streamlit>=1.28.0
+opencv-python>=4.8.0
+numpy>=1.24.0
+pandas>=2.0.0
+python-dotenv>=1.0.0
+requests>=2.31.0
+sqlalchemy>=2.0.0
+mediapipe>=0.10.0

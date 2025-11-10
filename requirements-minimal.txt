@@ -1,0 +1,12 @@
+# Minimal requirements for Face Attendance System
+# Use this for faster installation if you have system dependencies already installed
+
+streamlit==1.28.1
+opencv-python==4.8.1.78
+numpy==1.24.3
+pandas==2.0.3
+pillow==10.0.0
+sqlalchemy==2.0.21
+python-dotenv==1.0.0
+requests==2.31.0
+mediapipe==0.10.3

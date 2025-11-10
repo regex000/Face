@@ -1,4 +1,5 @@
-import cv2
+# Use wrapper to handle headless environment
+from cv2_wrapper import cv2
 import numpy as np
 from pathlib import Path
 import pickle

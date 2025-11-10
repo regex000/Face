@@ -1,9 +1,14 @@
 import requests
 import json
 from typing import Optional, List, Dict
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
 
 # OpenRouter API configuration
-OPENROUTER_API_KEY = "sk-or-v1-default"  # Will be set from environment
+OPENROUTER_API_KEY = os.getenv("OPENROUTER_API_KEY", "")
 OPENROUTER_BASE_URL = "https://api.openrouter.ai/api/v1"
 
 # Fallback model (free tier)

@@ -51,8 +51,8 @@ logs/
 backups/
 
 # Streamlit
-.streamlit/
 .streamlit/secrets.toml
+!.streamlit/config.toml
 
 # Cache
 .cache/
